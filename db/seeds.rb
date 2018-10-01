@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Space.create(:name => "パーティールーム1", :price => 1500, :image =>"", :discription => "駅近でとても綺麗なパーティースペースです", :addres => "東京都渋谷区", :)
