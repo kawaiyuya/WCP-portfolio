@@ -1,6 +1,6 @@
-<h1>予約画面</h1>
+<h1>予約内容入力ページだよ</h1>
 <p>日にちを選んでね</p>
-<%= form_for (@reservation), url: space_reservations_path(total_price: @price) do |f| %>
+<%= form_for (@reservation), url: space_reservations_path do |f| %>
 	<%= f.label "予約日" %>
 	<%= f.date_select :reservation_date, {}, class: 'form-control'%><br>
 
@@ -13,13 +13,6 @@
 	<%= f.label "終了時間" %>
 	<%= f.time_select :finish_time,{minute_step: 60} %><br>
 
-<p>合計金額</p>
 
-	<%= %>
-	<div class="controls">
-  <%= f.text_field :reservation_date, data: { :date_format => 'YYYY/MM/DD hh:mm' }, :class => 'form-control datetimepicker', placeholder: 'YYYY/MM/DD hh:mm:ss' %>
-</div>
-	
-
-	<%= f.submit %>
+	<%= f.submit "この内容で予約"%>
 <% end %>

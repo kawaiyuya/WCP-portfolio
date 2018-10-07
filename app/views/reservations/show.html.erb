@@ -1,0 +1,39 @@
+<h1>最終確定画面だよ</h1>
+<p>予約内容</p>
+	<%= form_for (@reservation), url: confirm_path(space_id: params[:space_id]) do |f| %>
+
+		<%= f.label "予約日" %>
+		<%= @reservation.reservation_date %>
+		<%= f.hidden_field :reservation_date %><br>
+
+		<%= f.label "開始時間" %>
+		<%= @reservation.start_time%>
+		<%= f.hidden_field :start_time %><br>
+
+		<%= f.label "終了時間" %>
+		<%= @reservation.finish_time %>
+		<%= f.hidden_field :finish_time %><br>
+
+
+		<p>合計金額</p>
+		<%= @price %>円
+		<%= f.hidden_field :total_price, value: @price %>
+		<%= f.hidden_field :user_id, value: current_user.id %>
+		<%= f.hidden_field :space_id, value: params[:space_id] %>
+		<p>この内容でよろしいですか？</p>
+
+		<%= f.submit "予約する"%>
+	<% end %>
+
+
+	<%= form_for (@reservation), url: change_path(space_id: params[:space_id]) do |f| %>
+
+
+		<%= f.hidden_field :reservation_date %>
+
+		<%= f.hidden_field :start_time %>
+
+		<%= f.hidden_field :finish_time %>
+
+		<%= f.submit "予約内容を変更する"%>
+	<% end %>
