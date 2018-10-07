@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_081224) do
+ActiveRecord::Schema.define(version: 2018_10_07_034702) do
 
   create_table "amenities", force: :cascade do |t|
-    t.integer "amenitie_id"
     t.integer "facility_id"
     t.string "name"
     t.datetime "created_at", null: false
@@ -21,7 +20,6 @@ ActiveRecord::Schema.define(version: 2018_10_01_081224) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.integer "category_id"
     t.integer "genre_id"
     t.integer "space_id"
     t.datetime "created_at", null: false
@@ -29,7 +27,6 @@ ActiveRecord::Schema.define(version: 2018_10_01_081224) do
   end
 
   create_table "facilities", force: :cascade do |t|
-    t.integer "facility_id"
     t.integer "space_id"
     t.integer "amenitie_id"
     t.datetime "created_at", null: false
@@ -37,7 +34,6 @@ ActiveRecord::Schema.define(version: 2018_10_01_081224) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "favorite_id"
     t.integer "user_id"
     t.integer "space_id"
     t.datetime "created_at", null: false
@@ -45,15 +41,12 @@ ActiveRecord::Schema.define(version: 2018_10_01_081224) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.integer "genre_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.integer "reservation_id"
-    t.integer "space_id"
     t.integer "user_id"
     t.date "reservation_date"
     t.time "start_time"
@@ -61,21 +54,26 @@ ActiveRecord::Schema.define(version: 2018_10_01_081224) do
     t.integer "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "space_id"
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.integer "room_id"
     t.integer "user_id"
     t.integer "your_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "spaces", force: :cascade do |t|
+  create_table "space_images", force: :cascade do |t|
     t.integer "space_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_id"
+  end
+
+  create_table "spaces", force: :cascade do |t|
     t.string "name"
     t.integer "price"
-    t.text "image"
     t.string "description"
     t.string "addres"
     t.float "latitube"
@@ -84,6 +82,13 @@ ActiveRecord::Schema.define(version: 2018_10_01_081224) do
     t.integer "lender_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "image_id"
+  end
+
+  create_table "time_counts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "time"
   end
 
   create_table "users", force: :cascade do |t|
@@ -95,11 +100,11 @@ ActiveRecord::Schema.define(version: 2018_10_01_081224) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname"
-    t.text "profile_image"
     t.string "name_family_name"
     t.string "name_name"
     t.string "furigana_family_name"
     t.string "furigana_name_name"
+    t.text "profile_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

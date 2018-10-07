@@ -1,0 +1,29 @@
+<h1>ユーザーの詳細ページ</h1>
+
+	<%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg",size:'100x100'%>
+
+	<% if current_user.id != @user.id%>
+
+		ニックネーム：<%= @user.nickname %>さん
+		<!-- 連絡してみるリンク（rooms） -->
+		<!-- 各スペースいいねの合計表示 -->
+	<% else %>
+
+		<%= form_for (@user) do |f| %>
+			<%= f.attachment_field :profile_image %>
+			<%= f.text_field :nickname %>
+			<%= f.submit %>
+		<% end %>
+
+	<% end %>
+<h1><%= @user.nickname %>さんが掲載中のスペース</h1>
+	<% @spaces.each do |space| %>
+		<%= link_to space.name, space_path(space.id) %>
+		<% space.space_images.each do |image| %>
+
+			<%= attachment_image_tag image, :image, fallback: "no_image.jpg",size:'200x150'%>
+		<% end %>
+			<br>
+			<br>
+
+	<% end %>

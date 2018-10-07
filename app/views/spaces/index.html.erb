@@ -1,0 +1,14 @@
+<h1>トップ/スペースのインデックス</h1>
+
+<% @spaces.each do |space| %>
+<% space.space_images.each do |image|  %>
+
+<%= link_to attachment_image_tag image, :image,fallback: "no_image.jpg",size:'250x150'%>
+<% end %><br>
+<%= link_to "詳細",space_path(space.id) %>
+<%= link_to space.name,space_path(space.id) %><br>
+料金：<%= space.price %>/１時間<br>
+説明：<%= space.description %><br>
+住所：<%= space.addres %><br>
+収容人数：<%= space.capacity %><br>
+<% end %>

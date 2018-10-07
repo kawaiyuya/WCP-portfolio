@@ -4,9 +4,14 @@
     <title>Portfolio</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <%= link_to "新規登録", new_user_registration_path %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= link_to "ログイン", new_user_session_path %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= link_to "新規スペース投稿", new_space_path %>
+    <%= link_to "スペース一覧", spaces_path %>
+    <%= link_to "ユーザー情報", user_path(current_user.id)%>
   </head>
 
   <body>

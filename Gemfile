@@ -76,3 +76,6 @@ gem 'jquery-turbolinks'
 gem 'nested_form', '~> 0.3.2'
 gem 'nested_form_fields'
 gem 'enum_help'
+gem 'geocoder'
+gem "font-awesome-rails"
+gem 'bootstrap-datetimepicker-rails'

@@ -1,4 +1,5 @@
 class Reservation < ApplicationRecord
 	belongs_to :space
-	belongs_to :users
+	belongs_to :user
+	
 end
