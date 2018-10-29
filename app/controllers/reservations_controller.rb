@@ -1,4 +1,9 @@
 class ReservationsController < ApplicationController
+	# def index
+	# 	binding.pry
+	# 	@reservations = Reservation.Where(user_id: params[:id])
+	# 	@lender_spaces = Space.where(lender_id: params[:id])
+	# end
 	def new
 		@reservation = Reservation.new(space_id:params[:id])
 	end
@@ -15,7 +20,16 @@ class ReservationsController < ApplicationController
 
 	end
 
-	def index
+
+	def user_reservations
+		@reservations = Reservation.where(user_id: params[:id])
+		# binding.pry
+		# @spaces = Space.where(id: @reservations.space_id)
+
+		@lender_spaces = Space.where(lender_id: params[:id])
+		# reserved_space = spaces.reservations
+		# binding.pry
+		# @a = Reservation.where(space_id: @lender_spaces.id)
 	end
 
 	def show
@@ -33,7 +47,6 @@ class ReservationsController < ApplicationController
 		reservation.save
 		redirect_to spaces_path
 	end
-
 
 	private
 

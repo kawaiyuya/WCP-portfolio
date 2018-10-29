@@ -1,0 +1,11 @@
+<h2>genre</h2>
+
+<% categories.each do |category| %>
+	<%= form_for(category) do |f| %>
+		<% genres.each do |genre| %>
+    	  <%= f.check_box :genre_id %>
+		  <%= genre.name %>
+		<% end %>
+	<% end %>
+<% end %>
+

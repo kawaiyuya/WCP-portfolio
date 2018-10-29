@@ -1,55 +1,66 @@
-<h2>新規登録</h2>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+<div class="container-fluid">
+  <div class="row sampleRow">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10 registrations_new">
+      <h2>新規登録</h2>
 
-  <div class="field">
-    <%= f.label :ニックネーム %>
-    <%= f.text_field :nickname %>
+      <div class="nickname_box new">
+        <p>ニックネーム</p>
+        <%= f.text_field :nickname,class: "nickname new"%>
+      </div>
+
+      <div class="name_family_name_box new">
+        <p>名字</p>
+        <%= f.text_field :name_family_name, autofocus: true %>
+      </div>
+
+      <div class="name_name_box">
+        <p>名前</p>
+        <%= f.text_field :name_name %>
+      </div>
+
+      <div class="furigana_family_name_box new">
+        <p>名字フリガナ</p>
+        <%= f.text_field :furigana_family_name %>
+      </div>
+      <div class="furigana_name_name_box new">
+        <p>名前フリガナ</p>
+        <%= f.text_field :furigana_name_name %>
+      </div>
+
+
+      <div class="email_box new">
+        <p>メールアドレス</p>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="password_box new">
+        <p>パスワード</p>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="password new">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+
+    <%= render "users/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :名字 %>
-    <%= f.text_field :name_family_name, autofocus: true %>
+  <div class="col-md-1">
   </div>
-
-  <div class="field">
-    <%= f.label :名前 %>
-    <%= f.text_field :name_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :名字フリガナ %>
-    <%= f.text_field :furigana_family_name %>
-  </div>
-  <div class="field">
-    <%= f.label :名前フリガナ %>
-    <%= f.text_field :furigana_name_name %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
+</div>

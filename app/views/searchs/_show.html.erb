@@ -1,0 +1,26 @@
+
+
+<% categorys.each do |category| %>
+  <div class="container index">
+	<div class="show_box">
+	  <div class="image_box">
+
+		  <div class="">
+		  	<div class="search-image theTarget">
+			  <% category.space.each do |space_image| %>
+			  <%= attachment_image_tag space_image, :image,fallback: "no_image.jpg",class: "index_image",id: "space_image"%>
+				  <p class="glyphicon glyphicon-bookmark parice"><%= category.space.price %>/1h</p>
+			<% end %>
+		  	</div>
+		  </div>
+
+		  <div class="space_syosai">
+			<div><%= link_to category.space.name,space_path(category.space.id) %></div>
+			<div class="glyphicon glyphicon-flag"><%= category.space.addres %></div>
+		  </div>
+
+	  </div>
+	</div>
+  </div>
+<% end %>
+

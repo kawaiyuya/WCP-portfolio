@@ -1,29 +1,68 @@
-<h1>ユーザーの詳細ページ</h1>
+<%= stylesheet_link_tag 'front/user'%>
 
-	<%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg",size:'100x100'%>
+<div class="container-fluid">
+  <div class="row sampleRow">
+    <div class="col-md-1">
+    </div>
+     <div class="col-md-10">
 
-	<% if current_user.id != @user.id%>
+		<div class="profile_box show edit clearfix">
+			<%= attachment_image_tag @user, :profile_image, fallback: "images/no_image.jpg", class: "profile-image show"%>
 
-		ニックネーム：<%= @user.nickname %>さん
-		<!-- 連絡してみるリンク（rooms） -->
-		<!-- 各スペースいいねの合計表示 -->
-	<% else %>
+			<% if current_user.id != @user.id%>
+				<div class="profile_text_box show">
+					<p class="nickname show" >NickName：<%= @user.nickname %>さん</p>
+					<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+					<button type="button" class="chat-button"><%= link_to "連絡してみる",create_room_path(@user.id),class: "chat-link" %></button>
+					<div class="self_introduction_box show">
+						<p><%= @user.self_introduction %></p>
+					</div>
+				</div>
+			<% else %>
+				<div class="profile_text_box show">
+					<%= form_for (@user) do |f| %>
+					 	<%= f.attachment_field :profile_image%>
+					 	<div class="nickname edit">
+					 		<%= f.text_field :nickname %>
+					 	</div>
+					 	<div class="self_introduction_box edit">
+					 		  	<%= f.text_area :self_introduction, class: "self_introduction_form"%>
+					 	</div>
+					 	<%= f.submit "update"%>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
 
-		<%= form_for (@user) do |f| %>
-			<%= f.attachment_field :profile_image %>
-			<%= f.text_field :nickname %>
-			<%= f.submit %>
+				
+
+	<div class="rending_space_box">
+		<%if @user.id == current_user.id %>
+		  <h1>Renting　Spaces</h1>
+		<% else %>
+		  <h1><%= @user.nickname %> Renting　Spaces</h1>
 		<% end %>
+	</div>
 
-	<% end %>
-<h1><%= @user.nickname %>さんが掲載中のスペース</h1>
-	<% @spaces.each do |space| %>
-		<%= link_to space.name, space_path(space.id) %>
-		<% space.space_images.each do |image| %>
+			<% @spaces.each do |space| %>
+			  <div class="user-space">
+				<div class="container">
+					<div class="space-box">
+					    <div class="theTarget">
+					  		<% space.space_images.each do |image| %>
+						  		<%= attachment_image_tag image, :image %>
+					  		<%= link_to space.name, space_path(space.id) %>
+					  		<% end %>
+						</div>
+				 	</div>
+　					</div>
+			  </div>
+			<% end %>
 
-			<%= attachment_image_tag image, :image, fallback: "no_image.jpg",size:'200x150'%>
-		<% end %>
-			<br>
-			<br>
+	 </div>
 
-	<% end %>
+<div class="col-md-1">
+</div>
+
+</div>
+</div>

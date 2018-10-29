@@ -1,0 +1,90 @@
+<%= stylesheet_link_tag 'front/room'%>
+<div id="comment", data-room_id="<%= @room.id %>", data-user_id="<%= current_user.id %>" data-your_id ="<%= @room.your_id %>">
+	<%= @room.id %>
+	<%= attachment_image_tag current_user, :profile_image,id: "user_image" %>
+	<%= attachment_image_tag @your, :profile_image,id: "your_image" %>
+
+</div>
+<div class="container-fluid">
+  <div class="row sampleRow">
+    <div class="col-md-1">
+    </div>
+
+	<div class="col-md-10">
+		<div id="nav-drawer">
+	      <input id="nav-input" type="checkbox" class="nav-unshown">
+	      <label id="nav-open" for="nav-input"><span> << Rooms </span></label>
+	      <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+	      <div id="nav-content"><%= render 'rooms/index', rooms: @rooms %></div>
+    	</div>
+	  <div class="room_oya">
+		<div class="room clearfix">
+<!-- ここにコメント -->
+			<div id="comment-box">
+			<img id="user_profile_image">
+<!-- ここまで -->
+			<% @comments.each do |comment| %>
+
+			<% if comment.user_id == current_user.id %>
+
+			  <div class="room-user-text-box clearfix">
+				<div class="room-user-text">
+				  <div class="user-text-text clearfix">
+					<div class="user-comment"><p class="comment"><%= simple_format(comment.comment) %></p></div>
+					<div class ="user-image">
+					<%= attachment_image_tag comment.user, :profile_image, fallback: "no_image.jpg",class: "room-profile-image"%>
+					</div>
+				  </div>
+				</div>
+			  </div>
+
+			<% else %>
+<!-- your_commen -->
+				<div class="room-your-text-box">
+				  <div class="room-your-text">
+					  <div class="your-text-text">
+						<div class ="your-image">
+							<%= attachment_image_tag comment.user, :profile_image, fallback: "no_image.jpg",class: "room-profile-image"%>
+						</div>
+							<div class="your-comment"><p class="comment"><%= simple_format(comment.comment) %></p></div>
+					  </div>
+				  </div>
+				</div>
+			<% end %>
+
+
+			<% end %>
+			</div>
+		</div>
+
+
+		<div class="room_form">
+		  <form>
+			<div class="container-fluid">
+		 	  <div class="row sampleRow">
+		    	<div class="col-md-9">
+					<div class="form_text_box">
+						<textarea id="chat_message"></textarea>
+					</div>
+				</div>
+				
+		    	<div class="col-md-3">
+		    		<div class>
+			    		<div class="chat_button">
+							<button type="button" id="chat_btn"　class="room_chat_btn">Send</button>
+			    		</div>	
+		    		</div>
+		    	</div>
+			  </div>
+			</div>
+		  </form>
+		</div>
+
+	  </div>
+
+	</div>
+
+	<div class="col-md-1">
+	</div>
+  </div>
+</div>

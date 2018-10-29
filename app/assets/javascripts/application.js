@@ -10,14 +10,37 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-var data = {'data-format': 'yyyy-MM-dd hh:mm:ss' };
-$(function(){
-    $('.datepicker').attr(data);
-    $('.datepicker').datetimepicker();
-});
- ->
-  $(".datetimepicker").datetimepicker()
+
+
+
+
+
+//ハンバーカー
+
+$(function() {
+ 
+  $('.menu-trigger').on('click', function() {
+    $('.menu-trigger').toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    $('.menu-trigger').css('display', 'block');
+    return false;
+  });
+
+  $('.menu-trigger').find('span').on('click', function() {
+    $('.menu-trigger').toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    $('.menu-trigger').css('display', 'block');
+    return false;
+  });
+ 
+ });
+
+
+
+
+

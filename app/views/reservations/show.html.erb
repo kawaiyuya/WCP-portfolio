@@ -1,39 +1,66 @@
-<h1>最終確定画面だよ</h1>
-<p>予約内容</p>
-	<%= form_for (@reservation), url: confirm_path(space_id: params[:space_id]) do |f| %>
+<h1>Confirm reservation</h1>
+<div class="container-fluid">
+ 	<div class="row sampleRow">
+    	<div class="col-md-1">
+    	</div>
+    		<div class="col-md-10">
+					<div class="reservation-contents-box">
+						<h2>Reservation contents</h2>
+							<%= form_for (@reservation), url: confirm_path(space_id: params[:space_id],user_id:current_user.id) do |f| %>
+								<div class="reserve-contents">
+									<div class="reserve-date">
+										<div class="reservation-date-table">
+										  <%= f.label "date" %>
+										  <%= @reservation.reservation_date.strftime("%Y-%m-%d") %>
+										  <%= f.hidden_field :reservation_date %>
+										</div>
+									</div>
 
-		<%= f.label "予約日" %>
-		<%= @reservation.reservation_date %>
-		<%= f.hidden_field :reservation_date %><br>
+									<div class="reserve-start-time">
+										<div class="reservation-time-table start">
+											<%= f.label "start" %>
+											<%= @reservation.start_time.strftime("%H:%M:%S")%>
+											<%= f.hidden_field :start_time %>
+										</div>
+									</div>
 
-		<%= f.label "開始時間" %>
-		<%= @reservation.start_time%>
-		<%= f.hidden_field :start_time %><br>
+									<div class="reserve-finish-time">
+										<div class="reservation-time-table finish">
+											<%= f.label "finish" %>
+											<%= @reservation.finish_time.strftime("%H:%M:%S") %>
+											<%= f.hidden_field :finish_time %>
+										</div>
+									</div>
 
-		<%= f.label "終了時間" %>
-		<%= @reservation.finish_time %>
-		<%= f.hidden_field :finish_time %><br>
+									<div class="total-price">
+										<div class="total-price-table">
+											<%= f.label"total price" %>
+											<%= @price %>円
+											<%= f.hidden_field :total_price, value: @price %>
+											<%= f.hidden_field :user_id, value: current_user.id %>
+											<%= f.hidden_field :space_id, value: params[:space_id] %>
+											<p>Is not this the reservation content correct?</p>
+										</div>
+									</div>
+								</div>
+									<%= f.submit "reserve",class: "reservate-btn"%>
+							<% end %>
 
 
-		<p>合計金額</p>
-		<%= @price %>円
-		<%= f.hidden_field :total_price, value: @price %>
-		<%= f.hidden_field :user_id, value: current_user.id %>
-		<%= f.hidden_field :space_id, value: params[:space_id] %>
-		<p>この内容でよろしいですか？</p>
-
-		<%= f.submit "予約する"%>
-	<% end %>
+								<%= form_for (@reservation), url: change_path(space_id: params[:space_id]) do |f| %>
 
 
-	<%= form_for (@reservation), url: change_path(space_id: params[:space_id]) do |f| %>
+									<%= f.hidden_field :reservation_date %>
 
+									<%= f.hidden_field :start_time %>
 
-		<%= f.hidden_field :reservation_date %>
+									<%= f.hidden_field :finish_time %>
 
-		<%= f.hidden_field :start_time %>
-
-		<%= f.hidden_field :finish_time %>
-
-		<%= f.submit "予約内容を変更する"%>
-	<% end %>
+									<%= f.submit "change reserve",class: "reservate-btn3"%>
+								<% end %>
+					</div>
+			</div>
+		<div class="col-md-1">
+    	</div>
+    </div>
+</div>

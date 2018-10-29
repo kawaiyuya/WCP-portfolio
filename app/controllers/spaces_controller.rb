@@ -4,33 +4,36 @@ class SpacesController < ApplicationController
 		@spaces = Space.all
 		# @spaces_image = SpaceImage.where(image_id: @space.id)
 		# @spaces.where('created_at > ?', 1.day.ago)
+		@categorys = nil
 	end
 
 	def show
 		@space = Space.find(params[:id])
 		@categories = Category.where(space_id: @space.id)
-		@user = User.find(@space.lender_id)
 		@facilitys = Facility.where(space_id: @space.id)
+		@user = User.find(@space.lender_id)
+		# @facilitys = Facility.where(space_id: @space.id)
 
 		@genres = Genre.all
-		@genres_array = []
-				@genres.each do |genre|
-	 			@genres_array << [genre.name,genre.name]
-	 		end
+
+		# @genres_array = []
+		# 		@genres.each do |genre|
+	 # 			@genres_array << [genre.name,genre.name]
+	 # 		end
 
 	 	@amenities = Amenitie.all
-	 	@amenities_array = []
-	 			@amenities.each do |amenitie|
-	 			@amenities_array = [amenitie.name,amenitie.name]
-	 		end
+
+	 # 	@amenities_array = []
+	 # 			@amenities.each do |amenitie|
+	 # 			@amenities_array = [amenitie.name,amenitie.name]
+	 # 		end
 	 		# binding.pry
-	 		
 	end
 
 	def new
 		@space = Space.new
 		@space.space_images.build
-
+		
 	end
 
 	def update
@@ -38,6 +41,8 @@ class SpacesController < ApplicationController
 		@space = Space.find(params[:id])
 		@space.update(new_space)
 		redirect_to spaces_path
+
+
 
 	end
 
@@ -55,6 +60,8 @@ class SpacesController < ApplicationController
 		redirect_to space_path(space)
 
 	end
+
+
 
 	def create
 		# binding.pry
@@ -93,7 +100,6 @@ class SpacesController < ApplicationController
 			facility = Facility.new(amenitie_id: amenitie_number.to_i,space_id: params[:id])
 			facility.save
 		end
-
 		redirect_to spaces_path
 
 	end
@@ -111,6 +117,11 @@ class SpacesController < ApplicationController
 		def params_update
 			params.require(:space).permit(:id, :image, :name, :description, :addres, :capacity, :price)
 		end
+
+		
+		# def index_spaces
+		# 	params.require(:space).permit(:id, :image, :name, :description, :addres, :capacity, :price)
+		# end
 
 
 end

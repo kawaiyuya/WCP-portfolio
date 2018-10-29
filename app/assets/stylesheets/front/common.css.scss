@@ -1,0 +1,28 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+	background-color: white;
+}
+
+.top{
+	font-size: 25px;
+	text-decoration: none;
+}
+.logout {
+	font-size: 15px;
+	text-decoration: none;
+}
+.new-space {
+	font-size: 15px;
+	text-decoration: none;
+}
+.user-show {
+	font-size: 15px;
+	text-decoration: none;
+}
+
+.col-md-9 {
+	font-family: verdana,sans-serif;
+}
+

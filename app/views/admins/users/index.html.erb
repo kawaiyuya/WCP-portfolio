@@ -1,0 +1,10 @@
+<h1>adminのユーザー一覧表示画面だよ</h1>
+
+<% @users.each do |user| %>
+	<%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg",size:'100x100'  %><br>
+	ニックネーム：
+	<%= link_to user.nickname,admins_user_path(user.id) %><br>
+	メールアドレス：
+	<%= user.email %><br>
+	
+<% end %>

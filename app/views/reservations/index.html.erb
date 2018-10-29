@@ -1,12 +1,17 @@
-<h1>予約内容一覧表示ページだよ　ユーザー/オーナー兼よう</h1>
+<h1>予約内容確認画面</h1>
+<% @reservations.each do |reservation| %>
+		<%= reservation.space.name.truncate(20,omission: '...')  %>
+	使用予定日
+	  　<%= reservation.reservation_date.strftime("%Y-%m-%d") %><br>
+	開始時刻
+  		<%= reservation.start_time.strftime("%H:%M:%S") %><br>
+  	終了時刻
+  		<%= reservation.finish_time.strftime("%H:%M:%S") %><br>
+  	合計金額
+  		<%= reservation.total_price %><br>
+  	
+<% end %>
 
-<h2>予約したスペース</h2>
-
-
-
-<h2>予約されたスペース</h2>
-
-
-
-
+<h1>貸し出し中のスペース予約された状況</h1>
+	
 
