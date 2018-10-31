@@ -16,14 +16,14 @@
 //= require turbolinks
 //= require_tree .
 
-
+//= require gmaps/google
+//= require underscore
 
 
 
 //ハンバーカー
 
 $(function() {
- 
   $('.menu-trigger').on('click', function() {
     $('.menu-trigger').toggleClass('active');
     $('#sp-menu').fadeToggle();
@@ -37,7 +37,6 @@ $(function() {
     $('.menu-trigger').css('display', 'block');
     return false;
   });
- 
  });
 
 

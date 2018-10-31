@@ -26,7 +26,7 @@
             </div>
 
             <div class="space_text edit">
-              <p class="glyphicon glyphicon-flag text"><%= f.text_field :addres,class: "addres_form edit"%></p>
+              <p class="glyphicon glyphicon-flag text"><%= f.text_field :address,class: "addres_form edit"%></p>
               <p class="glyphicon glyphicon-user text">〜<%= f.number_field :capacity,class: "capacity_form edit" %>人</p>
               <p class="glyphicon glyphicon-tag text">
                 <% @space.categories.each do |category| %>
@@ -58,7 +58,7 @@
             <div class="price_box edit">
                 <p class="price edit">¥<%= f.text_field :price,class: "price_form edit"%>/1h</p>
               </div>
-              
+
           </div>
         </div>
 
@@ -96,7 +96,7 @@
               </div>
 
               <div class="space_text show">
-                <p class="glyphicon glyphicon-flag text"><%= @space.addres %></p>
+                <p class="glyphicon glyphicon-flag text"><%= @space.address %></p>
                 <p class="glyphicon glyphicon-user text">〜<%=@space.capacity %>人</p>
                 <p class="glyphicon glyphicon-tag text">
                   <% @categories.each do |category| %>
@@ -156,15 +156,31 @@
 
       </div>
     </div>
+      <!-- グーグルマップ -->
+      <div id="map" style='width: 100%; height: 500px;'></div>
+        <script type="text/javascript">
+          handler = Gmaps.build('Google');
+          handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+            markers = handler.addMarkers([
+              {
+                "lat": <%= @space.latitude %>,
+                "lng": <%= @space.longitude %>,
+            "infowindow": '<p><%= @space.name %></p><p><%= @space.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@space.latitude},#{@space.longitude}&iwloc=J",target: "_blank" %></p>'
+              }
+            ]);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            handler.getMap().setZoom(17);
+          });
+        </script>
 
 
   <% else %>
     <!-- loginしてない -->
-    <div class="container-fluid">
-      <div class="row sampleRow">
-        <div class="col-md-12">
+    <div class="container show">
+      <div class="theTarget">
           <% @space.space_images.each do |image| %>
-            <%= attachment_image_tag image, :image,fallback: "images/no_image.jpg",class: "image show"%>
+            <div><%= attachment_image_tag image, :image,fallback: "images/no_image.jpg",class: "image show",id: "space_image"%></div>
           <% end %>
           </div>
       </div>
@@ -172,28 +188,50 @@
 
     <div class="container-fluid">
       <div class="row sampleRow">
-        <div class="col-md-12">
-          <p><%= @space.name %></p>
-          <p><%= @space.price %>/１時間</p>
-          <p><%= @space.description %></p>
-          <p><%= @space.addres %></p>
-          <p><%= @space.capacity %></p>
-          <p>
-           ジャンル：<% @categories.each do |category| %>
-            <%= category.genre.name %>
-           <% end %>
-          </p>
-          <p>
-           アメニティー：<% @facilitys.each do |facility| %>
-            <%= facility.amenitie.name %>
-           <% end %>
-          </p>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+              <div class="name_box show">
+                  <p class="name show"><%= @space.name %></p>
+              </div>
+
+              <div class="space_text show">
+                <p class="glyphicon glyphicon-flag text"><%= @space.address %></p>
+                <p class="glyphicon glyphicon-user text">〜<%=@space.capacity %>人</p>
+                <p class="glyphicon glyphicon-tag text">
+                  <% @categories.each do |category| %>
+                    <%= category.genre.name %>
+                  <% end %>
+                </p>
+              </div>
+
+              <div class="amenities_box show">
+                <p class="glyphicon glyphicon-link">アメニティー</p>
+                <div>
+                  <% @facilitys.each do |facility| %>
+                  <p class="glyphicon glyphicon-ok"><%= facility.amenitie.name %></p>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="description_box show">
+                 <p class="description show"><%= simple_format(@space.description) %></p>
+              </div>
+          </div>
+        <div class="col-md-1">
         </div>
       </div>
     </div>
+
 
     <% end %>
   </div>
 
     <div class="col-md-1">
     </div>
+
+
+
+
+
+

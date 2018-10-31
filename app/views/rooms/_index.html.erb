@@ -15,9 +15,9 @@
 			<% end %>
 
 	    	<div class="user_image index">
-				<%= attachment_image_tag room.user, :profile_image, fallback: "images/no_image.jpg",class: "room-profile-image"%>
+				<%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg",class: "room-profile-image"%>
 	    	</div>
-			<p class="user_name index"><%= link_to room.user.nickname, room_path(room.id) %></p>
+			<p class="user_name index"><%= link_to user.nickname, room_path(room.id) %></p>
 
 			<div class="user_comment_box _index">
 				<% room.comments.order('created_at desc').first(1).each do |comment| %>

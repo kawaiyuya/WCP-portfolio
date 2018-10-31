@@ -1,3 +1,3 @@
 class Amenitie < ApplicationRecord
-	has_many :facilitys
+	has_many :facilitys, dependent: :destroy
 end

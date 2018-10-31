@@ -1,5 +1,6 @@
 $('#show').html("<%= j(render 'searchs/show',categorys: @categorys) %>");
-
+// $('#show').html('<p>hogehogheoges</p>')
+console.log('<%= @categorys %>');
 $("document").ready(function() {
     $(".theTarget").skippr();
 });

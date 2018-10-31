@@ -77,5 +77,6 @@ gem 'nested_form', '~> 0.3.2'
 gem 'nested_form_fields'
 gem 'enum_help'
 gem 'geocoder'
+gem "gmaps4rails"
 gem "font-awesome-rails"
 gem 'bootstrap-datetimepicker-rails'

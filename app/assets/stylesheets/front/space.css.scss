@@ -265,7 +265,7 @@
 // space_index sherch
 
 .space_syosai{
-	color:gray;
+	background-color:#EEEEEE;
 	font-size: 15px;
 }
 .search-image{
@@ -279,41 +279,8 @@
 	background-color: black;
 
 }
-.parice{
-	width: auto;
-	height: 30px;
-	position: absolute;
-	left: 10px;
-	background-color: #CCCCCC;
-	font-size: 25px;
-	color: white;
-	border-radius: 5px;
-}
 
-.space_capacity{
-	width: 100%;
-	height: 20px;
-	// border: 1px solid;
-	
-}
-.space_category{
-	width: 100%;
-	height: 20px;
-	// border: 1px solid;
-	
-}
-.space_facility{
-	width: 100%;
-	height: 20px;
-	// border: 1px solid;
-}
 
-.category{
-	width: 100%;
-	height: 20px;
-	// border: 1px solid;
-}
-// 
 
 
 
@@ -544,3 +511,9 @@
 #modal.hidden {
   transform: translate(0, -500px);
 }
+
+#map{
+	width: 100%;
+	height: 500px;
+}
+

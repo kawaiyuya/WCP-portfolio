@@ -4,7 +4,8 @@ class SpacesController < ApplicationController
 		@spaces = Space.all
 		# @spaces_image = SpaceImage.where(image_id: @space.id)
 		# @spaces.where('created_at > ?', 1.day.ago)
-		@categorys = nil
+		# @categorys = nil
+		
 	end
 
 	def show
@@ -37,9 +38,9 @@ class SpacesController < ApplicationController
 	end
 
 	def update
-		# binding.pry
+		binding.pry
 		@space = Space.find(params[:id])
-		@space.update(new_space)
+		@space.update(params_update)
 		redirect_to spaces_path
 
 
@@ -111,11 +112,11 @@ class SpacesController < ApplicationController
 	private
 
 		def new_space
-			params.require(:space).permit(:name, :description, :addres, :capacity, :price, space_images_images: [])
+			params.require(:space).permit(:name, :description, :address, :latitude, :longitude, :capacity, :price, space_images_images: [])
 		end
 
 		def params_update
-			params.require(:space).permit(:id, :image, :name, :description, :addres, :capacity, :price)
+			params.require(:space).permit(:id, :image, :name, :description, :address, :capacity, :price)
 		end
 
 		

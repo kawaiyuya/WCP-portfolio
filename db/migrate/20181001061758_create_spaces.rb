@@ -7,7 +7,7 @@ class CreateSpaces < ActiveRecord::Migration[5.2]
       t.text :image
       t.string :description
       t.string :addres
-      t.float :latitube
+      t.float :latitude
       t.float :longitude
       t.integer :capacity
       t.integer :lender_id
