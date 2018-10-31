@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reservation_id: 1
+  space_id: 1
+  user_id: 1
+  reservation_date: 2018-10-01
+  start_time: 2018-10-01 06:24:04
+  finish_time: 2018-10-01 06:24:04
+  total_price: 1
+
+two:
+  reservation_id: 1
+  space_id: 1
+  user_id: 1
+  reservation_date: 2018-10-01
+  start_time: 2018-10-01 06:24:04
+  finish_time: 2018-10-01 06:24:04
+  total_price: 1

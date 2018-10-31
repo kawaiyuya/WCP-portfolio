@@ -1,0 +1,10 @@
+<h1>adminのスペース詳細ページだよ</h1>
+
+	<% @space.space_images.each do |image|  %>
+	<%= link_to attachment_image_tag image, :image,fallback: "no_image.jpg",size:'250x150'%>
+	<% end %>
+	<%= @space.name %>
+	<%= @space.addres %>
+	<%= @space.price %>
+	<%= @space.capacity %>
+	<%= link_to'このスペースを削除する',admins_space_path(@space.id), method: :delete, "data-confirm" => "削除しますか？" %><br>

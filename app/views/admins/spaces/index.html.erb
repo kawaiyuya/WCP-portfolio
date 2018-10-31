@@ -1,0 +1,10 @@
+<h1>adomin側のスペース一覧ページだよ</h1>
+<% @spaces.each do |space| %>
+	<% space.space_images.each do |image|  %>
+	<%= link_to attachment_image_tag image, :image,fallback: "no_image.jpg",size:'250x150'%><br>
+	<% end %>
+	<%= link_to space.name,admins_space_path(space.id) %><br>
+	<%= space.price %><br>
+	<%= space.addres%><br>
+	<%= "======================"%><br>
+<% end %>

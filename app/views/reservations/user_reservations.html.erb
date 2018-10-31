@@ -1,0 +1,79 @@
+<%= stylesheet_link_tag 'front/reservation'%>
+<div class="container-fluid">
+  <div class="row sampleRow">
+    <div class="col-md-1">
+    </div>
+      <div class="col-md-10">
+
+		<h2>Reservation Space</h2>
+		
+		<div class="reservate_box show clearfix">
+			<% if @reservations === nil %>
+					予約したスペースはありません
+			<% else %>
+				<% @reservations.each do |reservate| %>
+					<!-- 論理削除の追加 -->
+					<% reservate.space.space_images.first(1).each do |image| %>
+					  <div class="space_image_box show">
+					  	<%= attachment_image_tag image, :image,fallback: "images/no_image.jpg",class: "image show" %>
+					  </div>
+					 <% end %>
+						<div class="space_name_box show">
+						  <p class="space_name show"><%= reservate.space.try(:name) %></p>
+						</div>
+					<p class="price_box show">Total-Price : ¥<%= reservate.total_price %>円</p>
+					<div class="date_time_box show">
+					  <p class=" glyphicon glyphicon-calendar"><%= reservate.reservation_date.strftime("%Y-%m-%d") %> <%= reservate.start_time.strftime("%H:%M") %>~<%= reservate.finish_time.strftime("%H:%M") %></p>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+
+
+		<h2>Lender Space</h2>
+
+		<% @lender_spaces.each do |space| %>
+		  <% if space == nil %>
+		 	　貸し出しているスペースはありません。
+		  <% else%>
+		    <div class="reservate_box show clearfix">
+			<% space.space_images.first(1).each do |image| %>
+				<%= attachment_image_tag image, :image,fallback: "images/no_image.jpg",class: "image show"%>
+			<% end %>
+				<div class="space_name_box show">
+					<p class="space_name show"><%= space.name %></p>
+				</div>
+			  <% space.reservations.each do |reservate| %>
+				<%if reservate == nil %>
+				    このスペースの予約履歴はありません
+				<% else %>
+					<table class="reservate_table">
+						<thead>
+							<tr>
+								<th></th>
+								<th>user</th>
+								<th>date</th>
+								<th>s.time</th>
+								<th>f.time</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><%= attachment_image_tag reservate.user, :profile_image,fallback: "images/no_image.jpg",class: "profile_image show"%></td>
+								<td><%= reservate.user.nickname %></td>
+								<td><%= reservate.reservation_date.strftime("%Y-%m-%d") %></td>
+								<td><%= reservate.start_time.strftime("%H:%M")%></td>
+								<td><%= reservate.finish_time.strftime("%H:%M") %></td>
+							</tr>
+						</tbody>
+					</table>
+				<% end %>
+			  <% end %>
+		    </div>
+		  <% end%>
+		<% end %>
+	  </div>
+    <div class="col-md-1">
+    </div>
+  </div>
+</div>

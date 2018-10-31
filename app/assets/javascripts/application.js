@@ -10,7 +10,36 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//= require gmaps/google
+//= require underscore
+
+
+
+//ハンバーカー
+
+$(function() {
+  $('.menu-trigger').on('click', function() {
+    $('.menu-trigger').toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    $('.menu-trigger').css('display', 'block');
+    return false;
+  });
+
+  $('.menu-trigger').find('span').on('click', function() {
+    $('.menu-trigger').toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    $('.menu-trigger').css('display', 'block');
+    return false;
+  });
+ });
+
+
+
+
+

@@ -1,0 +1,401 @@
+// room_index
+.room_box.index{
+	width: 100%;
+	height: 100px;
+	background-color: #EEEEEE;
+	border-radius: 5px;
+	border: 1px solid;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	// linkの記述
+	position: relative;
+}
+
+#link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-indent: -999px;
+}
+
+// .room_box.index a{
+// 	width: 100%;
+// 	height: 100%;
+// 	display: none;
+// }
+
+
+.room_box.index:hover{
+	width: 100%;
+	height: 100px;
+	background-color: #EEEEEE;
+	border-radius: 5px;
+	border: 1px solid;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	// background-color: white;
+	opacity: 0.6;
+}
+.room_box._index{
+	width: 400px;
+	height: 100px;
+	background-color: #EEEEEE;
+	border-radius: 5px;
+	border: 1px solid;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.room_box._index:hover{
+	width: 400px;
+	height: 100px;
+	background-color: #EEEEEE;
+	border-radius: 5px;
+	border: 1px solid;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	opacity: 0.6;
+}
+.user_image.index{
+	width: auto;
+	// height: 100%;
+	float: left;
+	margin: 10px;
+}
+.user_name.index{
+	font-size: 20px;
+	margin: 0px;
+}
+.user_comment_box.index{
+	width: 900px;
+	height: 60px;
+	background-color: white;
+	margin-left: 100px;
+	border-radius: 5px;
+}
+.user_comment_box._index{
+	width: 280px;
+	height: 60px;
+	background-color: white;
+	margin-left: 100px;
+	border-radius: 5px;
+}
+.comment.index{
+	color: silver;
+	font-style: 15px;
+	width: 100%;
+	height: 100%;
+	border:1px solid;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+
+
+// room_show
+
+.room_oya{
+	width: 100%;
+	position: relative;
+}
+.room{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding-bottom: 70px;
+	background-color: #EEEEEE;
+}
+.room-your-text-box{
+	width: 100%;
+	height: 100px;
+}
+.room-user-text-box{
+	width: 100%;
+	// height: 100px;
+
+}
+.room-your-text {
+	height: 100%;
+	width: 50%;
+	// border: 1px solid;
+}
+
+.room-user-text {
+	height: 100%;
+	width: 50%;
+	// border: 1px solid;
+	// float: right;
+	margin-left: 500px;
+}
+.your-text{
+	height: 100%;
+	width: 100%;
+	// background-color: pink;
+	margin:0 ;
+}
+.user-text{
+	height: 100%;
+	width: 100%;
+	// background-color: pink;
+	margin:0 ;
+	padding: 0;
+}
+
+.user-text-text{
+	height: 100%;
+	// width: 100%;
+	margin: 10px;
+
+	// background-color: red;
+}
+.your-text-text{
+	height: 100%;
+	width: 100%;
+	// background-color: red;
+	margin: 0;
+	padding: 0;
+}
+
+.user-text{
+	height: 100%;
+	width: 100%;
+	// background-color: red;
+}
+
+.common_image{
+	height: 80px;
+	width: 80px;
+	border-radius: 50px;
+}
+
+.user-image{
+	@extend .common_image;
+	float: right;
+}
+#user_image, #your_image{
+	display: none;
+
+}
+.your-image{
+	float: left;
+	height: 100%;
+	width: 80px;
+}
+.user-comment{
+	float: left;
+	height: auto;
+	width: 80%;
+	border-radius: 10px;
+	// background-color: blue;
+	// margin-bottom: 60px;
+	border: 0.5px solid;
+	background-color: white;
+	padding: 10px;
+}
+.your-comment{
+	float: right;
+	height: auto;
+	width: 80%;
+	border-radius: 10px;
+	// background-color: blue;
+	padding: 0, 0, 0, 0;
+	border: 0.5px solid;
+	background-color: white;
+	padding: 10px;
+
+}
+.comment{
+	float: left;
+	word-break: break-all;
+
+}
+
+#comment-box{
+	margin: 10px;
+}
+
+.room-profile-image {
+	width: 80px;
+	height:80px;
+	border-radius: 70px;
+}
+
+
+.room_form{
+	position: fixed;
+ //  	z-index: 1;
+	height: auto;
+	width: 100%;
+	background-color: silver;
+	bottom: 0;
+	right: 0;
+	// text-align: center;
+
+}
+.chat_button{
+	height: 75px;
+	width: 100%;
+	border-radius: 10px;
+	cursor: pointer;
+
+}
+#chat_btn{
+	height: 100%;
+	width: 100%;
+	// background-color: blue;
+	border-radius: 10px;
+	border: 2px solid;
+
+	// cursor: pointer;
+}
+#chat_btn:hover{
+	height: 100%;
+	width: 100%;
+	background-color: silver;
+	color: white;
+	border-radius: 10px;
+	cursor: pointer;
+	border: 2px solid;
+}
+
+.form_text_box{
+	width: 100%;
+	height: 100%;
+	// background-color: green;
+}
+
+#chat_message{
+	width: 100%;
+	border-radius: 5px;
+	height: 100%;
+	font-size: 20px;
+	margin:5px;
+}
+.user_profile_image{
+	height: 80px;
+	width: 80px;
+	border-radius: 70px;
+}
+
+#rooms-index, #close {
+  cursor: pointer;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 40px;
+  margin: 15px auto 0;
+}
+#mask {
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+#modal {
+  background: #fff;
+  width: 1000px;
+  height: auto;
+  padding: 20px;
+  border-radius: 4px;
+  position: fixed;
+
+  top: 25px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  transition: .8s;
+  z-index: 2;
+  display: inline-block;
+}
+
+#mask.hidden {
+  display: none;
+}
+
+#modal.hidden {
+  transform: translate(0, -500px);
+}
+
+
+// show_ハンバーガー
+
+#nav-drawer {
+  position: relative;
+}
+
+
+.nav-unshown {
+  display:none;
+}
+
+/*アイコンのスペース*/
+#nav-open {
+    display: inline-block;
+    width: 100px;
+    height: 22px;
+    vertical-align: middle;
+}
+
+/*ハンバーガーアイコンをCSSだけで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+    position: absolute;
+    content: '';
+    cursor: pointer;
+}
+#nav-open span:before {
+    bottom: -8px;
+}
+#nav-open span:after {
+    bottom: -16px;
+}
+
+// 閉じる用の薄黒カバー
+#nav-close {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    transition: .3s ease-in-out;
+}
+
+// 中身
+#nav-content {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 90%;
+    max-width: 500px;
+    height: 100%;
+    background: #fff;
+    transition: .3s ease-in-out;
+    -webkit-transform: translateX(-105%);
+    transform: translateX(-105%);
+}
+
+
+#nav-input:checked ~ #nav-close {
+    display: block;
+    opacity: .5;
+}
+
+#nav-input:checked ~ #nav-content {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
+

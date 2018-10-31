@@ -4,12 +4,52 @@
     <title>Portfolio</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <div class="header">
+        <p class="title header">PURPUOSE</p>
+    </div>
+
+    <div id="sp-menu">
+      <h1></h1>
+      <ul>
+        <li><%= link_to"TOP","/", class: "top"%></li>
+        <%if user_signed_in? %>
+        <li><%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", class: "profile-image menu"%></li>
+        <li><%= link_to"ユーザー詳細へ",user_path(current_user.id),class: "user-show"%></li>
+        <li><%= link_to "予約一覧", user_reservations_path(current_user.id),class: "logout"%></li>
+        <li><%= link_to "新規スペース投稿", new_space_path,class: "new-space"%></li>
+        <li><%= link_to "トーク一覧へ",rooms_path%></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "logout"%></li>
+
+         <% else%>
+        <li><%= link_to "新規登録", new_user_registration_path %></li>
+        <li><%= link_to "ログイン", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div id="hm-icon" class="menu-trigger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
   </head>
 
   <body>
+
     <%= yield %>
+      <script src="../assets/javascripts/jquery-3.3.1.min.js"></script>
+      <script src="../assets/javascripts/skippr.min.js"></script>
+      <script src="../assets/javascripts/js/space.js"></script>
+      <script src="../assets/javascripts/js/search.js"></script>
+      <script src="../assets/javascripts/js/room.js"></script>
+      <script src="../assets/javascripts/js/reservation.js"></script>
+      <script src="//maps.google.com/maps/api/js?key=<%= ENV['AIzaSyCU0n-s9eWFDnDB_unIkuSKVuQOQHgVOiU'] %>"></script>
+      <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+
+
   </body>
+  <footer>
+  </footer>
 </html>

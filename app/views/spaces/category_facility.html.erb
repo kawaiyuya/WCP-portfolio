@@ -1,0 +1,24 @@
+<h1>カテゴリーと設備選択画面だよ</h1>
+
+<h2>ジャンルを選んでね</h2>
+	<%= nested_form_for (@space), url:create_category_facility_path(id: @space.id) do |f| %>
+	<%= f.fields_for :category do |tf| %>
+	<%= tf.label "ジャンル" %><br>
+		<% @genres.each do |genre| %>
+    	<%= tf.check_box :genre_id, {multiple: true}, genre.id %>
+		<%= genre.name %>
+	<% end %>
+	<% end %>
+
+<h2>アメニティを選んでね</h2>
+
+	<%= f.fields_for :facility do |tf| %>
+	<%= tf.label "アメニティ" %><br>
+		<% @amenities.each do |amenitie| %>
+    	<%= tf.check_box :amenitie_id, {multiple: true}, amenitie.id %>
+		<%= amenitie.name %>
+  		<% end %>
+	<% end %>
+  <%= f.submit %>
+<% end %>
+

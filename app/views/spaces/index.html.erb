@@ -1,0 +1,83 @@
+<%= stylesheet_link_tag 'front/space'%>
+
+<div class="container-fluid">
+  <div class="row sampleRow">
+    <div class="col-md-1">
+    </div>
+<!-- タブの表示してるよ -->
+    <div class="col-md-10">
+      <div class="tab-box">
+		<li>
+            <%= link_to "ALL",spaces_path, class: "genre"%>
+		</li>
+		<li>
+			<%= link_to "PARTY",search_path(1), remote: true , class: "genre"%>
+		</li>
+		<li>
+			<%= link_to "セミナー",search_path(2), remote: true , class: "genre"%>
+		</li>
+		<li>
+			<%= link_to "合コン",search_path(3), remote:true , class: "genre"%>
+		</li>
+		<li>
+			<%= link_to "スポーツ",search_path(4), remote:true , class: "genre"%>
+		</li>
+		<li>
+			<%= link_to "会議",search_path(5), remote:true , class: "genre"%>
+		</li>
+		<li>
+			<%= link_to "イベント",search_path(6), remote:true , class: "genre"%>
+		</li>
+		<li>
+			<%= link_to "オフィス",search_path(7), remote:true , class: "genre"%>
+		</li>
+		<li>
+			<%= link_to "アウトドア",search_path(8), remote:true , class: "genre"%>
+		</li>
+		<li>
+			<%= link_to "BBQ",search_path(9), remote:true , class: "genre"%>
+		</li>
+		<li>
+			<%= link_to "ロケ撮影",search_path(10), remote:true , class: "genre"%>
+		</li>
+		<li>
+			<%= link_to "写真撮影",search_path(11), remote:true , class: "genre"%>
+		</li>
+		<li>
+			<%= link_to "民泊",search_path(12), remote:true , class: "genre"%>
+		</li>
+		 <li>
+			<%= link_to "展示会場",search_path(13), remote:true , class: "genre"%>
+		</li>
+      </div>
+
+      <div class="spaces_box index search" id='show'>
+        <% @spaces.each do |space| %>
+            <div class="space_mini_box">
+              <div class="theTarget">
+                  <% space.space_images.each do |space_image| %>
+                  <div>
+                    <p class="price index">¥ <%= space.price %>/1h</p>
+                    <%= attachment_image_tag space_image, :image,class: "space_image index" %>
+                  </div>
+                  <% end %>
+              </div>
+              <div class="space_text index">
+                <p><%= link_to space.name.truncate(40,omission: '...') ,space_path(space.id) %></p>
+                <p class="glyphicon glyphicon-flag addres index"><%= space.address %></p>
+                <p class="glyphicon glyphicon-user capacity index">~<%= space.capacity %>人</p>
+              </div>
+            </div>
+        <% end %>
+      </div>
+
+
+    </div>
+
+    <div class="col-md-1">
+    </div>
+  </div>
+</div>
+
+
+

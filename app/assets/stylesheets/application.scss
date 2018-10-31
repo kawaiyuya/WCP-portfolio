@@ -1,0 +1,159 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require font-awesome
+ */
+
+    @import "bootstrap-sprockets";
+    @import "bootstrap";
+
+// 新規登録画面
+
+.registrations_new{
+  background-color: #EEEEEE;
+  text-align: center;
+}
+.name_box.new{
+
+}
+.nickname.new{
+  
+}
+
+
+.container{
+    height: 500px;
+}
+
+@media (min-width: 992px){
+.container {
+    width: 100%;
+}
+}
+.header{
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  // background-image: url("header.jpg");
+  background-color: #EEEEEE;
+}
+.title.header{
+    font-size: 35px;
+    text-align: center;
+    font-family: Impact;
+}
+.footer{
+  width: 100%;
+  height: 60px;
+  background-color: #EEEEEE;
+}
+
+
+// ハンバーガーメニュー
+li{
+	list-style: none;
+}
+.top{
+  font-family: 'Hiragino Kaku Gothic Pro'
+}
+#hm-icon{
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 10;
+}
+.profile-image.menu{
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+ 
+.menu-trigger {
+  position: relative;
+  width: 45px;
+  height: 40px;
+}
+ 
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+}
+ 
+.menu-trigger span:nth-of-type(1) {
+  top: 0;
+}
+ 
+.menu-trigger span:nth-of-type(2) {
+  top: 20px;
+}
+ 
+.menu-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+ 
+.menu-trigger.active span:nth-of-type(1) {
+  -webkit-transform: translateY(20px) rotate(-45deg);
+  transform: translateY(20px) rotate(-45deg);
+  background-color: #fff;
+}
+ 
+.menu-trigger.active span:nth-of-type(2) {
+  opacity: 0;
+}
+ 
+.menu-trigger.active span:nth-of-type(3) {
+  -webkit-transform: translateY(-20px) rotate(45deg);
+  transform: translateY(-20px) rotate(45deg);
+　background-color: #fff;
+}
+ 
+ 
+/* ------------------------ */
+/* ------ spメニュー ------ */
+/* ------------------------ */
+ 
+ 
+#sp-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  color: #000;
+  width: 100%;
+  min-height: 100%;
+  display: none;
+  z-index: 9;
+  opacity: 0.9;
+}
+ 
+#sp-menu li{
+  text-align: center;
+  margin-bottom: 30px;
+}
+ 
+#sp-menu a{
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}

@@ -1,0 +1,81 @@
+<h1>New space</h1>
+<div class="container-fluid">
+  <div class="row sampleRow">
+	<div class="col-md-1">
+	</div>
+	  <div class="col-md-10">
+
+		<%= form_for(@space) do |f| %>
+
+		<%= f.label "images" %>
+		<%= f.attachment_field :space_images_images, multiple: true %>
+		
+		<!-- 複数できるように -->
+		
+		<div class="row sampleRow">
+			<div class="col-md-12">
+				<div class="new-space-form-box">
+
+					<div class="new-space-name-form">
+					  <%= f.label "NAME",class: "new-space-label"%>
+						<div clss="space-name-form">
+					  		<%= f.text_field :name, class: "space-name-form"%>
+						</div>
+					</div>
+
+					<div class="new-space-description-form">
+					  <%= f.label "DESCRIPTION",class: "new-space-label"%>
+					  <div clss="space-description-form">
+					  		<%= f.text_area :description, class: "space-discription-form"%>
+						</div>
+					</div>
+
+
+				  <% if @space.errors.any? %>
+				  <h2><%= pluralize(@space.errors.count, "error") %> prohibited this map from being saved:</h2>
+				  <% @space.errors.full_messages.each do |message| %>
+				  <%= message %>
+				  <% end %>
+				  <% end %>
+
+				  	<div class="new-space-addres-form">
+				      <%= f.label "ADDRES",class: "new-space-label addres" %>
+				      <div class="space-addres-form">
+				  	  	<%= f.text_field :address, class: "space-addres-form"%>
+				      </div>
+				  	</div>	
+
+				  	<div class="row sampleRow">
+
+						<div class="col-md-4">
+				  			<div class="new-space-capacity-form">
+					  			<%= f.label "CAPACITY",class: "new-space-label capacity" %>
+					  			<div class="space-capacity-form">
+					  	  		<%= f.number_field :capacity, class: "space-capacity-form" %>
+					    		</div>
+				  			</div>
+					    </div>
+					    <div class="col-md-4">
+						  	<div class="new-space-price-form">
+							  	<%= f.label "PRICE/1h",class: "new-space-label price" %>
+							  	<div class="space-capacity-form">
+							  	  <%= f.text_field :price, class: "space-price-form" %>
+							  	</div>
+						  	</div>
+					    </div>
+
+					    <div class="col-md-4">
+					    	<div class="new-space-registration-btn">
+				  				<%= f.submit "REGISTRATION", class: "space-registration-btn" %>
+					    	</div>
+				  		</div>
+				  	</div>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	  </div>
+	<div class="col-md-1">
+	</div>
+  </div>
+</div>

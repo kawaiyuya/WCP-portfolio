@@ -1,0 +1,18 @@
+<h1>アドミン側のreservations一覧ページだよ</h1>
+
+<% @reservations.each do |reservation| %>
+
+予約した人：
+<%= link_to reservation.user.nickname,user_path(reservation.id) %><br>
+開始時間：
+<%= reservation.start_time %><br>
+終了時間：
+<%= reservation.finish_time %><br>
+合計金額：
+<%= reservation.total_price %><br>
+予約された日：
+<%= reservation.created_at %><br>
+
+ <%= link_to'この予約を削除する',admins_reservation_path(reservation.id), method: :delete, "data-confirm" => "削除しますか？" %><br>
+
+<% end %>

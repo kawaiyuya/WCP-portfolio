@@ -1,0 +1,237 @@
+<%= stylesheet_link_tag 'front/space'%>
+<div class="container-fluid show">
+  <div class="row sampleRow">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10 space_show_edit">
+
+<% if user_signed_in? && current_user.id == @space.lender_id %>
+<!--  loginかつ自分の -->
+
+    <%= form_for (@space),url:space_images_deleate_path do |f| %>
+      <% @space.space_images.each do |image| %>
+        <%= attachment_image_tag image, :image,fallback: "no_image.jpg",class: "show_image",id: "space_image" %>
+        <%= f.check_box :image_id, {multiple: true}, image.id %>
+      <% end %>
+      <%=f.submit "削除"%>
+    <% end %>
+
+    <div class="container-fluid">
+      <div class="row sampleRow">
+        <%= form_for @space do |f| %>
+          <div class="col-md-8">
+
+            <div class="name_box edit">
+              <p class="name edit"><%= f.text_field :name,class: "name_form edit" %></p>
+            </div>
+
+            <div class="space_text edit">
+              <p class="glyphicon glyphicon-flag text"><%= f.text_field :address,class: "addres_form edit"%></p>
+              <p class="glyphicon glyphicon-user text">〜<%= f.number_field :capacity,class: "capacity_form edit" %>人</p>
+              <p class="glyphicon glyphicon-tag text">
+                <% @space.categories.each do |category| %>
+                  <%= category.genre.name %>
+                <% end %>
+              </p>
+            </div>
+
+            <div class="amenities_box show">
+              <p class="glyphicon glyphicon-link">アメニティー</p>
+            <div>
+
+            <% @space.facilitys.each do |facility| %>
+              <p class="glyphicon glyphicon-ok"><%= facility.amenitie.name %></p>
+            <% end %>
+
+            <button type="button" id="open">genre.amenitieの編集</button>
+            <div id="modal" class="hidden">
+                <%= render 'spaces/category_facility',genres: @genres,categories: @categories,acilitys: @facilitys,amenities: @amenities %>
+                  <button type="button" id="close">閉じる</button>
+              </div>
+              <div id="mask" class="hidden"></div>
+            </div>
+
+            <div class="description_box edit">
+                 <p class="description edit"><%= f.text_area :description,class: "description_form edit"%></p>
+            </div>
+
+            <div class="price_box edit">
+                <p class="price edit">¥<%= f.text_field :price,class: "price_form edit"%>/1h</p>
+              </div>
+
+          </div>
+        </div>
+
+          <div class="col-md-4">
+            <%= f.submit "編集内容を保存する",class: "space_button edit"%>
+            <button type="button" class="space_button edit">
+              <%= link_to'このスペースを削除する',space_path(@space.id), method: :delete, "data-confirm" => "削除しますか？" %>
+            </button>
+            <button type="button" class="space_button edit">
+              <%= link_to "ユーザー情報",user_path(current_user.id) %>
+            </button>
+          </div>
+        <% end %>
+
+
+
+<% elsif user_signed_in? %>
+    <!-- loginかつ他の -->
+
+
+    <div class="container show">
+      <div class="theTarget">
+        <% @space.space_images.each do |image| %>
+        <div><%= attachment_image_tag image, :image,fallback: "images/no_image.jpg",class: "image show",id: "space_image"%></div>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div class="container-fluid">
+      <div class="row sampleRow">
+        <div class="col-md-8">
+              <div class="name_box show">
+                  <p class="name show"><%= @space.name %></p>
+              </div>
+
+              <div class="space_text show">
+                <p class="glyphicon glyphicon-flag text"><%= @space.address %></p>
+                <p class="glyphicon glyphicon-user text">〜<%=@space.capacity %>人</p>
+                <p class="glyphicon glyphicon-tag text">
+                  <% @categories.each do |category| %>
+                    <%= category.genre.name %>
+                  <% end %>
+                </p>
+              </div>
+
+              <div class="amenities_box show">
+                <p class="glyphicon glyphicon-link">アメニティー</p>
+                <div>
+                  <% @facilitys.each do |facility| %>
+                  <p class="glyphicon glyphicon-ok"><%= facility.amenitie.name %></p>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="description_box show">
+                 <p class="description show"><%= simple_format(@space.description) %></p>
+              </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="sideber show">
+            <div class="like_box show">
+              <% if @space.favorited_by?(current_user) %>
+                <li>
+                  <%= link_to space_favorites_path(@space), method: :delete do %>
+                    <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+                    <%= @space.favorites.count %> お気に入り
+                    <% end %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to space_favorites_path(@space), method: :post do %>
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    <%= @space.favorites.count %> お気に入り
+                  <% end %>
+                </li>
+              <% end %>
+            </div>
+
+            <div class="price_reserve_box show">
+              <div class="price_box show">
+                <p class="price show">¥<%= @space.price %>/1h</p>
+              </div>
+              <div class="reservation_box show">
+                <p class="reservation show"><%= link_to "予約画面へ",new_space_reservation_path(@space) %></p>
+              </div>
+            </div>
+            <div class="user_box show">
+              <%= attachment_image_tag @user, :profile_image,fallback: "images/no_image.jpg",class: "profile-image show" %>
+              <%= link_to "#{@user.nickname}さん", user_path(@space.lender_id) %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+      <!-- グーグルマップ -->
+      <div id="map" style='width: 70%; height: 300px; border-radius: 5px; margin-left: 100px;'　class="map"></div>
+        <script type="text/javascript">
+          handler = Gmaps.build('Google');
+          handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+            markers = handler.addMarkers([
+              {
+                "lat": <%= @space.latitude %>,
+                "lng": <%= @space.longitude %>,
+            "infowindow": '<p><%= @space.name %></p><p><%= @space.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@space.latitude},#{@space.longitude}&iwloc=J",target: "_blank" %></p>'
+              }
+            ]);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            handler.getMap().setZoom(17);
+          });
+        </script>
+
+
+  <% else %>
+    <!-- loginしてない -->
+    <div class="container show">
+      <div class="theTarget">
+          <% @space.space_images.each do |image| %>
+            <div><%= attachment_image_tag image, :image,fallback: "images/no_image.jpg",class: "image show",id: "space_image"%></div>
+          <% end %>
+          </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row sampleRow">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+              <div class="name_box show">
+                  <p class="name show"><%= @space.name %></p>
+              </div>
+
+              <div class="space_text show">
+                <p class="glyphicon glyphicon-flag text"><%= @space.address %></p>
+                <p class="glyphicon glyphicon-user text">〜<%=@space.capacity %>人</p>
+                <p class="glyphicon glyphicon-tag text">
+                  <% @categories.each do |category| %>
+                    <%= category.genre.name %>
+                  <% end %>
+                </p>
+              </div>
+
+              <div class="amenities_box show">
+                <p class="glyphicon glyphicon-link">アメニティー</p>
+                <div>
+                  <% @facilitys.each do |facility| %>
+                  <p class="glyphicon glyphicon-ok"><%= facility.amenitie.name %></p>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="description_box show">
+                 <p class="description show"><%= simple_format(@space.description) %></p>
+              </div>
+          </div>
+        <div class="col-md-1">
+        </div>
+      </div>
+    </div>
+
+
+    <% end %>
+  </div>
+
+    <div class="col-md-1">
+    </div>
+
+
+
+
+
+

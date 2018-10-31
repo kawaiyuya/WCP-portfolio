@@ -1,0 +1,20 @@
+<h1>アドミン側のユーザー詳細ページだよ</h1>
+
+	<%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg",size:'100x100'  %><br>
+	ニックネーム：
+	<%= @user.nickname %><br>
+	メールアドレス：
+	<%= @user.email %><br>
+	苗字：
+	<%= @user.name_family_name%><br>
+	名前：
+	<%= @user.name_name %><br>
+	フリガナ
+	<%= @user.furigana_family_name %><br>
+	フリガナ
+	<%= @user.furigana_name_name %><br>
+
+	<%= link_to'このユーザーを削除する',admins_user_path(@user.id), method: :delete, "data-confirm" => "削除しますか？" %><br>
+	<%= link_to"ユーザー内容の編集", edit_admins_user_path(@user.id)%>
+
+	<!-- チャットルームへのリンク（警告用） -->

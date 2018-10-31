@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="row sampleRow">
+    <div class="col-md-1">
+    </div>
+
+	<div class="col-md-10">
+	  <% @rooms.each do |room| %>
+	    <div class="room_box index clearfix">
+	    	<%= link_to room_path(room.id),id: "link" do %><% end %>
+	    	<!-- <a  class="test" href="rooms/#{room.id}"></a> -->
+	    	<!-- if文がtrueの時の処理はroomにひもづくyour.idのuser情報を使う -->
+	    	<% if room.user_id == current_user.id %>
+	    	  <% user = User.find(room.your_id) %>
+	    	<% else %>
+	    	  <% user = room.user %>
+			<% end %>
+
+	    	<div class="user_image index">
+				<%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg",class: "room-profile-image"%>
+	    	</div>
+			<p class="user_name index"><%= user.nickname %></p>
+			<div class="user_comment_box index">
+				<% room.comments.order('created_at desc').first(1).each do |comment| %>
+			  <p class="comment index"><%= comment.comment %></p>
+			  	<% end %>
+			</div>
+	    </div>
+	  <% end %>
+	</div>
+
+	<div class="col-md-1">
+    </div>
+  </div>
+</div>

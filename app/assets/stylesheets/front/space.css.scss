@@ -1,0 +1,519 @@
+/*スペーズ一覧*/
+
+// タブメニュー
+.tab-box{
+	width: 100%;
+	height: auto;
+	// border: 1px solid;
+	white-space: nowrap;
+    overflow: scroll;
+    background-color: white;
+
+}
+
+.tab-box li{
+	 // border: 1px solid;
+	 height: auto;
+	 width: auto;
+	 text-align: center;
+	 display: inline-block;
+	 border-radius: 20px;
+	 // background-color: grey;
+	 margin: 20px;
+}
+
+.genre{
+	text-align: center;
+	font-size: 25px;
+	color: gray;
+
+}
+.genre:hover{
+	font-size: 25px;
+	text-decoration: none;
+	text-align: center;
+	background-color: silver;
+    color: white;
+    border-radius: 5px;
+}
+
+// space_index
+.space_image.index{
+	height: 200px;
+	width: 300px;
+	border-radius: 3px;
+}
+
+.spaces_box.index.search{
+	height: auto;
+	width: 1050px;
+	border-radius: 5px;
+	position: relative;
+	margin-right: 45px;
+	margin-left: 45px;
+
+}
+.space_mini_box{
+	width: 300px;
+	height: 200px;
+	float: left;
+	margin: 0 5px 85px;
+}
+.space_text.index{
+	background-color: #EEEEEE;
+}
+.price.index{
+	background-color: gray;
+	font-size: 15px;
+	width: 100px;
+	height: auto;
+	text-align: center;
+	border-radius: 5px;
+	position: absolute;
+  	color: white;
+  	top: 5px;
+  	left: 5px;
+}
+
+.skippr-nav-element {
+	display: none;
+}
+
+.addres.index{
+	font-size: 10px;
+}
+.capacity.index{
+	font-size: 10px;
+}
+
+
+// space_show
+// loginかつ他の
+.image.show{
+	width: 100%;
+	height: 600px;
+	border-radius: 5px;
+}
+.name_box.show{
+	width: 100%;
+	height: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border: 1px solid;
+	padding: 5px;
+}
+.name.show{
+	font-size: 25px;
+	margin-bottom: 0px;
+}
+
+.space_text.show{
+	width: 100%;
+	height: auto;
+	
+}
+.text{
+	margin: 10px;
+	size: 5px;
+}
+
+.capacity_box.show{
+	width: 100%;
+	height: auto;
+}
+.amenities_box.show{
+	padding: 10px;
+}
+
+
+.description_box.show{
+	width: 100%;
+	height: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border: 1px solid;
+	padding: 5px;
+}
+
+.description.show{
+	font-size: 15px;
+	margin-bottom: 0px;
+}
+.sideber.show{
+	text-align: center;
+	border: 1px solid;
+	width: 100%;
+	height: auto;
+	// background-color: green;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.like_box.show{
+	width: 100%;
+	height: auto;
+}
+.price_reserve_box.show{
+	width: 100%;
+	height: auto;
+
+}
+.price_box.show{
+	width: 100%;
+	height: auto;
+	margin-left: 0px;
+}
+.price.show{
+	font-size: 30px;
+}
+.reservation_box.show{
+	width: 100%;
+	height: auto;
+}
+.reservation.show{
+	font-size: 30px;
+}
+
+.user_box.show{
+	// background-color: pink;
+	height: 100px;
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.profile-image.show{
+	height: 100px;
+	width: 100px;
+	border-radius: 50px;
+	margin-left: 25px;
+
+}
+// loginかつ自分の
+
+.name_box.edit{
+	width: 100%;
+	height: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border: 1px solid;
+	padding: 5px;
+}
+.name.edit{
+	font-size: 25px;
+	margin-bottom: 0px;
+	// height: auto;
+}
+.name_form.edit{
+	width: 100%;
+	border-radius: 5px;
+}
+.space_text.edit{
+	width: 100%;
+	height: auto;
+}
+.text{
+	margin: 10px;
+}
+.addres_form.edit{
+	border-radius: 5px;
+}
+.capacity_form.edit{
+	border-radius: 5px;
+
+}
+.description_box.edit{
+	width: 100%;
+	height: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border: 1px solid;
+	padding: 5px;
+}
+
+.description.edit{
+	font-size: 15px;
+	margin-bottom: 0px;
+	width: 100%;
+}
+.description_form.edit{
+	width: 100%;
+	border-radius: 5px;
+	height: auto;
+}
+.space_button.edit{
+	width: 100%;
+	border-radius: 5px;
+
+}
+.price_box.edit{
+	width: 100%;
+	height: auto;
+}
+.price.edit{
+	font-size: 15px;
+}
+.price_form.edit{
+	border-radius: 5px;
+}
+
+
+
+// space_index sherch
+
+.space_syosai{
+	background-color:#EEEEEE;
+	font-size: 15px;
+}
+.search-image{
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+.search-box{
+	width: auto;
+	height: auto;
+	background-color: black;
+
+}
+
+
+
+
+
+
+
+@media (min-width: 992px){
+.container.show {
+    width: 100%;
+    float: left;
+    height: 600px;
+ ;
+   
+}
+}
+
+@media (min-width: 992px){
+.container.index {
+    width: 50%;
+    float: left;
+    height: 350px;
+    padding: 10px 5 10px 5;
+    
+}
+}
+.show_box{
+	width: 100%;
+	color: blue;
+}
+
+
+// スキッパー
+.skippr{
+	width:100%;height:100%;position:relative;overflow:hidden
+}
+.skippr>div{
+	position:absolute;width:100%;height:100%;background-size:cover;background-position:50% 62.5%
+}.skippr>img{
+	position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%, -50%);-moz-transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);transform:translate(-50%, -50%);width:100%;min-height:100%
+}
+.skippr-nav-container{
+	position:absolute;left:50%;-webkit-transform:translate(-50%, 0);transform:translate(-50%, 0);-moz-transform:translate(-50%, 0);-ms-transform:translate(-50%, 0);bottom:25px;overflow:auto;z-index:999
+}
+.skippr-nav-element{
+	cursor:pointer;float:left;background-color:rgba(255,255,255,0.5);-webkit-transition:all .25s linear;transition:all .25s linear
+}
+.skippr-nav-element-bubble{
+	width:12px;height:12px;border-radius:50%;margin:0 4px
+}
+.skippr-nav-element-block{
+	width:60px;height:10px
+}
+.skippr-nav-element:hover,.skippr-nav-element-active{
+	background-color:#fff
+}
+.skippr-arrow{
+	position:absolute;z-index:999;top:50%;-webkit-transform:translate(0%, -50%);-moz-transform:translate(0%, -50%);-ms-transform:translate(0%, -50%);transform:translate(0%, -50%);width:30px;height:30px;transform-origin:center center;-webkit-transform-origin:top left;cursor:pointer
+}
+.skippr-previous{
+	left:2.5%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);border-top:2px solid;border-left:2px solid;color: white;
+}
+.skippr-next{
+	right:3.5%;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);border-bottom:2px solid ;border-right:2px solid;color: white;
+}
+
+
+
+// space_index search
+// タブメニュー自体
+
+
+
+// space_new
+.new-space-form-box{
+	width: 100%;
+	height: auto;
+	// background-color: green;
+	color: gray;
+}
+.new-space-name-form{
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+.space-name-form{
+	width: 100%;
+	height: auto;
+	font-size: 25px;
+	border-radius: 5px;
+}
+.new-space-label{
+	font-size: 50px
+}
+.new-space-description-form{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	content: "\A" ;
+	// background-color: blue;
+}
+.space-discription-form{
+	width: 100%;
+	height: 200px;
+	font-size: 25px;
+	border-radius: 5px;
+}
+.new-space-addres-form{
+	text-align: center;
+	height: auto;
+	width: 100%;
+	// background-color: gray;
+}
+
+.space-addres-form{
+	width: 90%;
+	height: 50px;
+	font-size: 25px;
+	border-radius: 5px;
+	margin-left: 35px;
+}
+.new-space-capacity-form{
+	width: 100%;
+	height: auto;
+	// background-color: pink;
+	text-align: center;
+	
+}
+.capacity{
+	font-size: 25px;
+}
+.space-capacity-form{
+	width: 100%;
+	height: 50px;
+	font-size: 25px;
+	border-radius: 5px;
+}
+.space-capacity-form{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	border-radius: 5px;
+	
+}
+.new-space-price-form{
+	width: 100%;
+	height: auto;
+	// background-color: red;
+	text-align: center;
+	
+}
+.price{
+	font-size: 25px;
+}
+.space-price-form{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	border-radius: 5px;
+}
+.new-space-registration-btn{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	// background-color: yellow;
+}
+.space-registration-btn{
+	width: 100%;
+	height: 50px;
+	width: 90%;
+	font-size: 25px;
+	border-radius: 5px;
+	margin-top: 30px;
+	box-shadow: 10px;
+}
+.space-registration-btn:hover{
+	width: 100%;
+	height: 50px;
+	width: 90%;
+	font-size: 25px;
+	border-radius: 5px;
+	margin-top: 30px;
+	background-color: gray;
+	color: white;
+}
+
+
+// モーダル関係
+
+#open, #close {
+  cursor: pointer;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 40px;
+  margin: 15px auto 0;
+}
+#mask {
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+#modal {
+  background: #fff;
+  width: 1000px;
+  height: 600px;
+  padding: 20px;
+  border-radius: 4px;
+  position: fixed;
+
+  top: 25px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  transition: .8s;
+  z-index: 2;
+  display: inline-block;
+}
+
+#mask.hidden {
+  display: none;
+}
+
+#modal.hidden {
+  transform: translate(0, -500px);
+}
+
+// .map{
+// 	width: 100%;
+// 	height: 500px;
+// }
+
