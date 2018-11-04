@@ -80,3 +80,4 @@ gem 'geocoder'
 gem "gmaps4rails"
 gem "font-awesome-rails"
 gem 'bootstrap-datetimepicker-rails'
+
