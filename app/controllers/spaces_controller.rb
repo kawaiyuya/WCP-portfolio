@@ -13,7 +13,7 @@ class SpacesController < ApplicationController
 		@categories = Category.where(space_id: @space.id)
 		@facilitys = Facility.where(space_id: @space.id)
 		@user = User.find(@space.lender_id)
-		# @facilitys = Facility.where(space_id: @space.id)
+		
 
 		@genres = Genre.all
 

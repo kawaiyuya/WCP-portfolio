@@ -43,7 +43,7 @@
               <p class="glyphicon glyphicon-ok"><%= facility.amenitie.name %></p>
             <% end %>
 
-            <button type="button" id="open">genre.amenitieの編集</button>
+           <!--  <button type="button" id="open">genre.amenitieの編集</button>
             <div id="modal" class="hidden">
                 <%= render 'spaces/category_facility',genres: @genres,categories: @categories,acilitys: @facilitys,amenities: @amenities %>
                   <button type="button" id="close">閉じる</button>
@@ -58,7 +58,7 @@
             <div class="price_box edit">
                 <p class="price edit">¥<%= f.text_field :price,class: "price_form edit"%>/1h</p>
               </div>
-
+ -->
           </div>
         </div>
 
@@ -163,8 +163,8 @@
           handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
             markers = handler.addMarkers([
               {
-                "lat": <%= @space.latitude %>,
-                "lng": <%= @space.longitude %>,
+                'lat': <%= @space.latitude %>,
+                'lng': <%= @space.longitude %>,
             "infowindow": '<p><%= @space.name %></p><p><%= @space.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@space.latitude},#{@space.longitude}&iwloc=J",target: "_blank" %></p>'
               }
             ]);

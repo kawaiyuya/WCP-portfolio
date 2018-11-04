@@ -1,16 +1,18 @@
-<h1>カテゴリーと設備選択画面だよ</h1>
+<div class="container-fluid">
+  <div class="row sampleRow">
+	<div class="col-md-1">
+	</div>
+	  <div class="col-md-10">
 
-<h2>ジャンルを選んでね</h2>
-	<%= nested_form_for (@space), url:create_category_facility_path(id: @space.id) do |f| %>
-	<%= f.fields_for :category do |tf| %>
-	<%= tf.label "ジャンル" %><br>
-		<% @genres.each do |genre| %>
-    	<%= tf.check_box :genre_id, {multiple: true}, genre.id %>
-		<%= genre.name %>
-	<% end %>
-	<% end %>
-
-<h2>アメニティを選んでね</h2>
+		<div class="genres_box">
+		  <%= nested_form_for (@space), url:create_category_facility_path(id: @space.id) do |f| %>
+		    <%= f.fields_for :category do |tf| %>
+			  <% @genres.each do |genre| %>
+			  <%= tf.check_box :genre_id, {multiple: true}, genre.id %>
+			  <%= genre.name %>
+		    <% end %>
+		  <% end %>
+		</div>
 
 	<%= f.fields_for :facility do |tf| %>
 	<%= tf.label "アメニティ" %><br>
@@ -22,3 +24,8 @@
   <%= f.submit %>
 <% end %>
 
+</div>
+	<div class="col-md-1">
+	</div>
+  </div>
+</div>
