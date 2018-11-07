@@ -6,6 +6,8 @@ class Space < ApplicationRecord
 	has_many :space_images, dependent: :destroy
  	accepts_attachments_for :space_images, attachment: :image
 
+ 	validates :space_images_images, presence: true
+ 	# validates_attachment_content_type :space_images_images
  	validates :name, presence: true
 	validates :price, presence: true
 	validates :capacity, presence: true

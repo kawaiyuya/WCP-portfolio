@@ -16,6 +16,7 @@
       <%=f.submit "削除"%>
     <% end %>
 
+
     <div class="container-fluid">
       <div class="row sampleRow">
         <%= form_for @space do |f| %>
@@ -43,7 +44,7 @@
               <p class="glyphicon glyphicon-ok"><%= facility.amenitie.name %></p>
             <% end %>
 
-           <!--  <button type="button" id="open">genre.amenitieの編集</button>
+            <button type="button" id="open">genre.amenitieの編集</button>
             <div id="modal" class="hidden">
                 <%= render 'spaces/category_facility',genres: @genres,categories: @categories,acilitys: @facilitys,amenities: @amenities %>
                   <button type="button" id="close">閉じる</button>
@@ -58,7 +59,7 @@
             <div class="price_box edit">
                 <p class="price edit">¥<%= f.text_field :price,class: "price_form edit"%>/1h</p>
               </div>
- -->
+
           </div>
         </div>
 
@@ -80,7 +81,7 @@
 
 
     <div class="container show">
-      <div class="theTarget">
+      <div class="theTarget single-item">
         <% @space.space_images.each do |image| %>
         <div><%= attachment_image_tag image, :image,fallback: "images/no_image.jpg",class: "image show",id: "space_image"%></div>
         <% end %>
@@ -157,23 +158,7 @@
       </div>
     </div>
       <!-- グーグルマップ -->
-      <div id="map" style='width: 70%; height: 300px; border-radius: 5px; margin-left: 100px;'　class="map"></div>
-        <script type="text/javascript">
-          handler = Gmaps.build('Google');
-          handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
-            markers = handler.addMarkers([
-              {
-                'lat': <%= @space.latitude %>,
-                'lng': <%= @space.longitude %>,
-            "infowindow": '<p><%= @space.name %></p><p><%= @space.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@space.latitude},#{@space.longitude}&iwloc=J",target: "_blank" %></p>'
-              }
-            ]);
-            handler.bounds.extendWith(markers);
-            handler.fitMapToBounds();
-            handler.getMap().setZoom(17);
-          });
-        </script>
-
+     <!--  -->
 
   <% else %>
     <!-- loginしてない -->
@@ -230,8 +215,8 @@
     <div class="col-md-1">
     </div>
 
-
-
+</div>
+</div>
 
 
 
