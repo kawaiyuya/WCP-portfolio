@@ -1,4 +1,4 @@
-<h1>New space</h1>
+
 <div class="container-fluid">
   <div class="row sampleRow">
 	<div class="col-md-1">
@@ -6,15 +6,23 @@
 	  <div class="col-md-10">
 
 		<%= form_for(@space) do |f| %>
-
-		<%= f.label "images" %>
-		<%= f.attachment_field :space_images_images, multiple: true %>
-		
 		<!-- 複数できるように -->
 		
 		<div class="row sampleRow">
 			<div class="col-md-12">
 				<div class="new-space-form-box">
+
+					<% if @space.errors.any? %>
+				  <h2><%= pluralize(@space.errors.count, "error") %> prohibited this map from being saved:</h2>
+				  <% @space.errors.full_messages.each do |message| %>
+				  <%= message %>
+				  <% end %>
+				  <% end %>
+				  <%= f.label "掲載できる写真は５枚までです。" %>
+				 <%= f.attachment_field :space_images_images, multiple: true%>
+				<% if flash[:notice] %>
+	    		<%= flash[:notice] %>
+					<% end %>
 
 					<div class="new-space-name-form">
 					  <%= f.label "NAME",class: "new-space-label"%>
@@ -31,13 +39,7 @@
 					</div>
 
 
-				  <% if @space.errors.any? %>
-				  <h2><%= pluralize(@space.errors.count, "error") %> prohibited this map from being saved:</h2>
-				  <% @space.errors.full_messages.each do |message| %>
-				  <%= message %>
-				  <% end %>
-				  <% end %>
-
+				  
 				  	<div class="new-space-addres-form">
 				      <%= f.label "ADDRES",class: "new-space-label addres" %>
 				      <div class="space-addres-form">

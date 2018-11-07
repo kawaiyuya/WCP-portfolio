@@ -34,7 +34,6 @@ class SpacesController < ApplicationController
 	def new
 		@space = Space.new
 		@space.space_images.build
-		
 	end
 
 	def update
@@ -65,11 +64,19 @@ class SpacesController < ApplicationController
 
 
 	def create
-		# binding.pry
 		@space = Space.new(new_space)
 		@space.lender_id = current_user.id
-		@space.save
-		redirect_to new_category_facility_path(@space)
+		@images = @space.space_images_images.count
+		if @images < 5
+			if @space.save
+			 redirect_to new_category_facility_path(@space)
+			else
+			  render "new"
+			end
+		else
+			render "new", notice: '画像の投稿は５枚までにしてください。'
+		end
+
 	end
 
 	def destroy

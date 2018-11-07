@@ -20,6 +20,17 @@
 
 // 新規登録画面
 
+.slick-prev {
+    left: 9px;
+    z-index: 100;
+}
+
+
+.slick-next {
+    right: 9px;
+    z-index: 100;
+}
+
 .registrations_new{
   background-color: #EEEEEE;
   text-align: center;

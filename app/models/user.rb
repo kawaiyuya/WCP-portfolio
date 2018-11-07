@@ -12,21 +12,21 @@ class User < ApplicationRecord
 
 
 
- #  	validates :nickname, presence: true
-	# validates :email, presence: true
-	# validates :name_family_name, presence: true
-	# validates :name_name, presence: true
-	# validates :furigane_family_name, presence: true
-	# validates :fuigana_name_name, presence: true
-	# # validates :furigana_family_name, presence: true, format: {
- #                   with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
- #                   message: "全角カタカナのみで入力して下さい"
- #                 }
+  	validates :nickname, presence: true
+	validates :email, presence: true
+	validates :name_family_name, presence: true
+	validates :name_name, presence: true
+	validates :furigane_family_name, presence: true
+	validates :fuigana_name_name, presence: true
+	validates :furigana_family_name, presence: true, format: {
+                   with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
+                   message: "全角カタカナのみで入力して下さい"
+                 }
 
- #  	validates :furigana_name, presence: true, format: {
- #                   with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
- #                   message: "全角カタカナのみで入力して下さい"
-                 # }
+  	validates :furigana_name, presence: true, format: {
+                   with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
+                   message: "全角カタカナのみで入力して下さい"
+                 }
 
   	
 

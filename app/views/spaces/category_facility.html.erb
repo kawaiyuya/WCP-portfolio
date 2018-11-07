@@ -3,29 +3,43 @@
 	<div class="col-md-1">
 	</div>
 	  <div class="col-md-10">
-
 		<div class="genres_box">
+		 <p>ジャンルは３つまで登録可能です</p>
 		  <%= nested_form_for (@space), url:create_category_facility_path(id: @space.id) do |f| %>
 		    <%= f.fields_for :category do |tf| %>
+		    <%= tf.label "ジャンルを選択してください"%><br>
 			  <% @genres.each do |genre| %>
-			  <%= tf.check_box :genre_id, {multiple: true}, genre.id %>
+			  <%= tf.check_box :genre_id, {id: 'checkbox',multiple: true}, genre.id %>
 			  <%= genre.name %>
 		    <% end %>
 		  <% end %>
 		</div>
 
 	<%= f.fields_for :facility do |tf| %>
-	<%= tf.label "アメニティ" %><br>
+	<%= tf.label "アメニティを選択してください" %><br>
 		<% @amenities.each do |amenitie| %>
     	<%= tf.check_box :amenitie_id, {multiple: true}, amenitie.id %>
 		<%= amenitie.name %>
   		<% end %>
-	<% end %>
-  <%= f.submit %>
+	<% end %><br>
+  <%= f.submit"スペースを登録する"%>
 <% end %>
-
 </div>
 	<div class="col-md-1">
 	</div>
   </div>
 </div>
+<!-- <input type="checkbox" name="" id="checkbox"> -->
+<script>
+	// チェックボックスの制限
+	// $(function(){
+	//  	$('#checkbox').click(function(){
+	// 		var i = 0;
+	// 		var i ++;
+	// 		if (i == 3,function(){
+	// 			alert('選択は３つまでです。');
+	// 		});
+	// 	});
+	//  });
+</script>
+
