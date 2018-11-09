@@ -24,7 +24,7 @@
 //ハンバーカー
 
 $(function() {
-  $('.menu-trigger').on('click', function() {
+  $(document).on('click','.menu-trigger',function(){
     $('.menu-trigger').toggleClass('active');
     $('#sp-menu').fadeToggle();
     $('.menu-trigger').css('display', 'block');

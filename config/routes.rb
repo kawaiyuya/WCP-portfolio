@@ -54,4 +54,5 @@ Rails.application.routes.draw do
    patch "space/:id" => "spaces#space_images_deleate", as: "space_images_deleate"
    get "genres/:genre_id/search/" => "searchs#show", as:"search"
    get "user/:id/reservations" => "reservations#user_reservations",as:"user_reservations"
+   patch "space/category_facility" => "spaces#category_facility_update",as:"space_genres_amenities"
 end

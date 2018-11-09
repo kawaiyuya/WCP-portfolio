@@ -1,11 +1,13 @@
-<h2>genre</h2>
+<h2>genre.amenitieの編集</h2>
 
-<% categories.each do |category| %>
-	<%= form_for(category) do |f| %>
-		<% genres.each do |genre| %>
-    	  <%= f.check_box :genre_id %>
-		  <%= genre.name %>
-		<% end %>
-	<% end %>
+
+<% genres.each do |genre| %>
+  <%= genre.name %>
 <% end %>
+
+
+<% amenities.each do |amenitie| %>
+  <%= amenitie.name %>
+<% end %>
+
 

@@ -13,17 +13,12 @@ class SpacesController < ApplicationController
 		@categories = Category.where(space_id: @space.id)
 		@facilitys = Facility.where(space_id: @space.id)
 		@user = User.find(@space.lender_id)
-		
-
 		@genres = Genre.all
-
 		# @genres_array = []
 		# 		@genres.each do |genre|
 	 # 			@genres_array << [genre.name,genre.name]
 	 # 		end
-
 	 	@amenities = Amenitie.all
-
 	 # 	@amenities_array = []
 	 # 			@amenities.each do |amenitie|
 	 # 			@amenities_array = [amenitie.name,amenitie.name]
@@ -37,7 +32,6 @@ class SpacesController < ApplicationController
 	end
 
 	def update
-		binding.pry
 		@space = Space.find(params[:id])
 		@space.update(params_update)
 		redirect_to spaces_path
@@ -92,6 +86,9 @@ class SpacesController < ApplicationController
 
 		@space.facilitys.build
 		@amenities = Amenitie.all
+	end
+	def category_facility_update
+		
 	end
 
 
