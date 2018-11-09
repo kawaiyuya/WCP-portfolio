@@ -52,6 +52,7 @@
               <div id="mask" class="hidden"></div>
             </div>
 
+
             <div class="description_box edit">
                  <p class="description edit"><%= f.text_area :description,class: "description_form edit"%></p>
             </div>
@@ -73,6 +74,33 @@
             </button>
           </div>
         <% end %>
+
+
+
+        <script>
+          $(function() {
+              var open = document.getElementById('open');
+  var close = document.getElementById('close');
+  var modal = document.getElementById('modal');
+  var mask = document.getElementById('mask');
+    ('#open').click
+    open.addEventListener('click', function() {
+    modal.className = '';
+    mask.className = '';
+  });
+
+$(function(){
+    $('#open').click(function(){
+        $('#modal').removeClass('hidden');
+        $('#mask').removeClass('hidden');
+    });
+    $('#close').click(function(){
+        $('#modal').addClass('hidden');
+        $('#mask').addClass('hidden');
+    });
+    });
+});
+        </script>
 
 
 
@@ -163,7 +191,7 @@
   <% else %>
     <!-- loginしてない -->
     <div class="container show">
-      <div class="theTarget">
+      <div class="theTarget single-item">
           <% @space.space_images.each do |image| %>
             <div><%= attachment_image_tag image, :image,fallback: "images/no_image.jpg",class: "image show",id: "space_image"%></div>
           <% end %>

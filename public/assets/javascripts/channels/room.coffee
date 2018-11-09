@@ -16,7 +16,6 @@ document.addEventListener 'turbolinks:load', ->
 			@perform 'speak', comment: _comment, room_id: _room_id
 
 		$(document).on 'click', '#chat_btn', (e) ->
-			console.log('publi')
 			id = $('#comment').data('room_id')
 			comment = $("#chat_message").val()
 			# vlueでinputやテキストエリアに入力した文字を取得することができる。

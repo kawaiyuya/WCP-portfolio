@@ -9,7 +9,7 @@
 		    <%= f.fields_for :category do |tf| %>
 		    <%= tf.label "ジャンルを選択してください"%><br>
 			  <% @genres.each do |genre| %>
-			  <%= tf.check_box :genre_id, {id: 'checkbox',multiple: true}, genre.id %>
+			  <%= tf.check_box :genre_id, {class: 'checkbox',multiple: true}, genre.id %>
 			  <%= genre.name %>
 		    <% end %>
 		  <% end %>
@@ -32,14 +32,16 @@
 <!-- <input type="checkbox" name="" id="checkbox"> -->
 <script>
 	// チェックボックスの制限
-	// $(function(){
-	//  	$('#checkbox').click(function(){
-	// 		var i = 0;
-	// 		var i ++;
-	// 		if (i == 3,function(){
-	// 			alert('選択は３つまでです。');
-	// 		});
-	// 	});
-	//  });
+$(function(){
+ 	$('.checkbox').click(function(){
+		var clicked_length = $('.checkbox:checked').length;
+		// alert(clicked_length);
+		if (clicked_length >= 3){
+			$('.checkbox:not(:checked)').attr('disabled', 'disabled');
+    	}else {
+      		$('.checkbox:not(:checked)').removeAttr('disabled');
+    	}
+	});
+ });
 </script>
 

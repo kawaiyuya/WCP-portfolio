@@ -102,27 +102,8 @@ $("document").ready(function() {
 
 
  // ジャンル・アメニティー追加のモーダル関係
-$(function() {
-  var open = document.getElementById('open');
-  var close = document.getElementById('close');
-  var modal = document.getElementById('modal');
-  var mask = document.getElementById('mask');
-    ('#open').click
-    open.addEventListener('click', function() {
-    modal.className = '';
-    mask.className = '';
-  });
-$(function(){
-    $('#open').click(function(){
-        $('#modal').removeClass('hidden');
-        $('#mask').removeClass('hidden');
-    });
-    $('#close').click(function(){
-        $('#modal').addClass('hidden');
-        $('#mask').addClass('hidden');
-    });
 
-});
+
 
 
 // いいね非同期
